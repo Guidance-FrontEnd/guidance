@@ -1,0 +1,23 @@
+{
+  "name": "guidance",
+  "version": "0.0.1",
+  "description": "Front-end guideline builder",
+  "main": "guidance",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Guidance-FrontEnd/guidance.git"
+  },
+  "keywords": [
+    "guideline",
+    "builder",
+    "frontend"
+  ],
+  "author": "Renato D'Arrigo <renato.darrigo@gmail.com>",
+  "license": "CC BY-SA",
+  "bugs": {
+    "url": "https://github.com/Guidance-FrontEnd/guidance/issues"
+  }
+}
