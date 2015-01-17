@@ -19,5 +19,8 @@
   "license": "CC BY-SA",
   "bugs": {
     "url": "https://github.com/Guidance-FrontEnd/guidance/issues"
+  },
+  "dependencies": {
+    "inquirer": "~0.8.0"
   }
 }
