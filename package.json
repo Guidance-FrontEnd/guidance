@@ -1,0 +1,33 @@
+{
+  "name": "Guidance",
+  "version": "0.0.1",
+  "description": "A front-end guideline builder.",
+  "main": "guidance",
+  "dependencies": {
+    "commander": "^2.6.0",
+    "inquirer": "^0.8.0",
+    "cli-color": "^0.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Guidance-FrontEnd/guidance.git"
+  },
+  "keywords": [
+    "frontend",
+    "guideline",
+    "web",
+    "development",
+    "builder",
+    "tool"
+  ],
+  "author": "Renato D'Arrigo <renato.darrigo@gmail.com>",
+  "license": "CC-BY-SA",
+  "bugs": {
+    "url": "https://github.com/Guidance-FrontEnd/guidance/issues"
+  },
+  "homepage": "https://github.com/Guidance-FrontEnd/guidance"
+}

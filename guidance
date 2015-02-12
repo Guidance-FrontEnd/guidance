@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+/* dependencies */
+
+var program   = require('commander'),
+    question  = require('inquirer'),
+    clc       = require('cli-color');
+
+
+/* lib */
+
+var Scaffold = require('./lib/scaffold/Scaffold.js');
+
+
+/* program */
+
+program
+  .version('0.0.1');
+
+program
+  .command('init')
+  .description('Create scaffold for new guideline')
+  .option("-p, --path [base_path]", "Set base path")
+  .action(function(options){
+    var path = options.path || ".";
+    Scaffold.init(path);
+  });
+
+program
+  .command('new [obj]')
+  .description('Create scaffoldind for object')
+  .action(function(obj){
+    Scaffold.new(obj);
+  });
+
+program.parse(process.argv);
+
+
+/* default - no arguments passed */
+
+var showInfo = function(){
+  var guidanceName = "GUIDANCE";
+  var guidanceNameColored = "";
+  for (var i=0; i<guidanceName.length; ++i){
+    var r = Math.floor(Math.random() * (230 - 21) + 21);
+    var color = clc.xterm(r);
+    guidanceNameColored += color(guidanceName.charAt(i));
+  }
+
+  console.log(guidanceNameColored);
+  console.log(clc.blackBright("A front-end guideline generator"));
+  console.log(clc.blackBright("                  version 0.0.1"));
+};
+
+if (process.argv.length < 3){
+  showInfo();
+}
