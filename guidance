@@ -19,6 +19,7 @@ program
 
 program
   .command('init')
+  .alias('i')
   .description('Create scaffold for new guideline')
   .option("-p, --path [base_path]", "Set base path")
   .action(function(options){
@@ -27,10 +28,37 @@ program
   });
 
 program
-  .command('new [obj]')
+  .command('create [obj]')
+  .alias('c')
   .description('Create scaffoldind for object')
   .action(function(obj){
-    Scaffold.new(obj);
+    Scaffold.create(obj);
+  });
+
+program
+  .command('category [category]')
+  .alias('cat')
+  .description('Create scaffold for category')
+  .action(function(category){
+    Scaffold.category(category);
+  });
+
+program
+  .command('new [module_category]')
+  .description('Create new module in [module_category]')
+  .option("-m, --module [module_name]", "Set module name")
+  .action(function(module_category, options){
+    var name = options.module || "";
+    Scaffold.module(module_category, name);
+  });
+
+program
+  .command('font')
+  .description('Create new font')
+  .option("-n, --name [font_name]", "Set font name")
+  .action(function(options){
+    var font_name = options.name || "";
+    Scaffold.font(font_name);
   });
 
 program.parse(process.argv);
@@ -39,17 +67,20 @@ program.parse(process.argv);
 /* default - no arguments passed */
 
 var showInfo = function(){
-  var guidanceName = "GUIDANCE";
-  var guidanceNameColored = "";
-  for (var i=0; i<guidanceName.length; ++i){
+  var line1 = "****       GUIDANCE        ****";
+  var line2 = "A front-end guideline generator";
+  var line3 = "(-h for help)     version 0.0.1";
+
+  var line1Colored = "";
+  for (var i=0; i<line1.length; ++i){
     var r = Math.floor(Math.random() * (230 - 21) + 21);
     var color = clc.xterm(r);
-    guidanceNameColored += color(guidanceName.charAt(i));
+    line1Colored += color(line1.charAt(i));
   }
 
-  console.log(guidanceNameColored);
-  console.log(clc.blackBright("A front-end guideline generator"));
-  console.log(clc.blackBright("                  version 0.0.1"));
+  console.log(line1Colored);
+  console.log(clc.blackBright(line2));
+  console.log(clc.blackBright(line3));
 };
 
 if (process.argv.length < 3){
